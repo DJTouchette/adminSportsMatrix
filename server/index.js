@@ -11,34 +11,41 @@ const resolve = require('path').resolve;
 const app = express();
 
 // In production we need to pass these values in instead of relying on webpack
-// setup(app, {
-//   outputPath: resolve(process.cwd(), 'build'),
-//   publicPath: '/',
-// });
-//
-// // get the intended port number, use port 3000 if not provided
-// const port = argv.port || process.env.PORT || 62102;
-//
-// // Start your app.
-// app.listen(port, (err) => {
-//   if (err) {
-//     return logger.error(err.message);
-//   }
-//
-//   // Connect to ngrok in dev mode
-//   if (ngrok) {
-//     ngrok.connect(port, (innerErr, url) => {
-//       if (innerErr) {
-//         return logger.error(innerErr);
-//       }
-//
-//       logger.appStarted(port, url);
-//     });
-//   } else {
-//     logger.appStarted(port);
-//   }
-// });
-
-app.get(*, (req, res) => {
-  res.send('hellllooo');
+setup(app, {
+  outputPath: resolve(process.cwd(), 'build'),
+  publicPath: '/',
 });
+
+// get the intended port number, use port 3000 if not provided
+const port = argv.port || process.env.PORT || 62102;
+
+// Start your app.
+app.listen(port, (err) => {
+  if (err) {
+    return logger.error(err.message);
+  }
+
+  // Connect to ngrok in dev mode
+  if (ngrok) {
+    ngrok.connect(port, (innerErr, url) => {
+      if (innerErr) {
+        return logger.error(innerErr);
+      }
+
+      logger.appStarted(port, url);
+    });
+  } else {
+    logger.appStarted(port);
+  }
+});
+
+// app.get('*', (req, res) => {
+//   res.send('hellllooo');
+// });
+//
+// app.listen(62102, (err) => {
+//   console.log('listening on 62102');
+//     if (err) {
+//       console.log(err);
+//     }
+// });
