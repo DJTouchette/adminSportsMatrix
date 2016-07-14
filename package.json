@@ -1,5 +1,5 @@
 {
-  "name": "react-boilerplate",
+  "name": "wnwPros",
   "version": "3.0.0",
   "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
   "repository": {
@@ -9,8 +9,8 @@
   "engines": {
     "npm": ">=3"
   },
-  "author": "Max Stoiber",
-  "license": "MIT",
+  "author": "Damien Touchette",
+  "license": "ISC",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
