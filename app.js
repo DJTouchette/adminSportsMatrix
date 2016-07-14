@@ -16,10 +16,10 @@ setup(app, {
   publicPath: '/',
 });
 
-// get the intended port number, use port 3000 if not provided
+// get the intended port number, use port 62102 if not provided
 const port = argv.port || process.env.PORT || 62102;
 
-// Start your app.
+// Start the app.
 app.listen(port, (err) => {
   if (err) {
     return logger.error(err.message);
