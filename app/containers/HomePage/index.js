@@ -15,7 +15,9 @@ export default class HomePage extends React.Component { // eslint-disable-line r
 
   render() {
     return (
-      <h1>Hello World! This is the node server for TSM Front! Powered by React.js</h1>
+      <div>
+        <h1>Hello World! This is the node server for TSM Front! Powered by React.js</h1>
+      </div>
     );
   }
 }

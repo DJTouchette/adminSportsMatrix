@@ -12,8 +12,16 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router';
+
+import Nav from 'components/Nav';
 
 import styles from './styles.css';
+
+const navProps = {
+  links: ['/home', '/users', '/content', '/purchases' ],
+  title: ['Home', 'Users', 'Content', 'Purchases']
+};
 
 export default class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -24,6 +32,7 @@ export default class App extends React.Component { // eslint-disable-line react/
   render() {
     return (
       <div className={styles.container}>
+        {Nav(navProps)}
         {this.props.children}
       </div>
     );
