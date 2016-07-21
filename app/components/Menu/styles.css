@@ -1,0 +1,30 @@
+.menu {
+
+}
+
+.hamburger {
+  font-size: 400%;
+  color: #009688;
+  transition: all .2s ease-in-out;
+}
+
+.hamburger:hover {
+  color: black;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+      -ms-transform: scale(1.1); /* IE 9 */
+          transform: scale(1.1); /* IE 10, Fx 16+, Op 12.1+ */
+}
+
+.sideMenuContent {
+  list-style: none;
+  padding: 10% 10% 10% 10%;
+  border-bottom: 1px solid black;
+  background-color: #009688;
+}
+
+.sideBar {
+  display: flex;
+  align-content: space-around;
+  background-color: #009688;
+}

@@ -8,7 +8,7 @@
  * reloading is not a neccessity for you then you can refactor it and remove
  * the linting exception.
  */
-
+import styles from './styles.css';
 import React from 'react';
 
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -16,7 +16,7 @@ export default class HomePage extends React.Component { // eslint-disable-line r
   render() {
     return (
       <div>
-        <h1>Hello World! This is the node server for TSM Front! Powered by React.js</h1>
+        <p className={styles.fromtop}>{this.props.msg}</p>
       </div>
     );
   }

@@ -1,0 +1,21 @@
+.userCard {
+
+}
+
+.animateZoom {
+  -webkit-animation: animatezoom 0.6s;
+  animation:animatezoom 0.6s;
+}
+
+.gridItem {
+  flex-grow: 0;
+  min-width: 25%;
+}
+
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  /*align-content: flex-start;*/
+}

@@ -1,0 +1,12 @@
+.gridItem {
+  /*display: flex;*/
+  max-width: 500px;
+
+}
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  /*align-content: flex-start;*/
+}

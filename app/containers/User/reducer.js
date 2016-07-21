@@ -20,7 +20,10 @@ function userReducer(state = initialState, action) {
 
     case ACTIONS.REQUEST_USERS:
       console.log(`the action is ${action.type} the state is ${state}`);
-      return state;
+      return Object.assign({}, state, {
+        ...state,
+        apiKey: action.apiKey,
+      });
 
       case ACTIONS.RECEIVING_USERS:
         console.log(`the action is ${action.users} the state is ${state}`);
@@ -34,6 +37,13 @@ function userReducer(state = initialState, action) {
         return Object.assign({}, state, {
          err: action.err,
        });
+
+       case ACTIONS.UPDATE_FORM:
+       console.log(`updating form ${[action.field]} ${ action.value3}`);
+        return {
+          ...state,
+          [action.field]: action.value
+        }
     default:
       return state;
   }

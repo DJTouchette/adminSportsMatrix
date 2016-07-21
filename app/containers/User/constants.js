@@ -11,6 +11,7 @@ export const ACTIONS = {
   RECEIVING_USERS: 'RECEIVING_USERS',
   RECEVING_ERR: 'RECEVING_ERR',
   GET_USER_LIST: 'GET_USER_LIST',
+  UPDATE_FORM: 'UPDATE_FORM',
 };
 
 const ApiRoot = 'http://jsonplaceholder.typicode.com';

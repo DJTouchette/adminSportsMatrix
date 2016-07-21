@@ -13,15 +13,12 @@
 
 import React from 'react';
 import { Link } from 'react-router';
-
-import Nav from 'components/Nav';
-
+import Menu from 'components/Menu';
+import { mapStateToProps, mapDispatchToProps } from 'containers/Login';
+import { connect } from 'react-redux';
 import styles from './styles.css';
 
-const navProps = {
-  links: ['/home', '/users', '/content', '/purchases' ],
-  title: ['Home', 'Users', 'Content', 'Purchases']
-};
+import { getToken, makeToken } from 'services/api';
 
 export default class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -29,12 +26,27 @@ export default class App extends React.Component { // eslint-disable-line react/
     children: React.PropTypes.node,
   };
 
+  componentWillMount() {
+    const hasToken = getToken();
+
+    if (!hasToken) {
+      this.props.history.push('/login');
+      return;
+      }
+    }
+
+    handleClick() {
+    }
+
   render() {
-    return (
-      <div className={styles.container}>
-        {Nav(navProps)}
-        {this.props.children}
-      </div>
-    );
+
+      return (
+        <div className={styles.container}>
+          <Menu />
+          <div className={`container ${styles.main}`}>
+            {this.props.children}
+          </div>
+        </div>
+      );
   }
 }

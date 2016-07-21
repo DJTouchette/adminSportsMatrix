@@ -10,13 +10,14 @@ import Helmet from 'react-helmet';
 import selectUser from './selectors';
 import styles from './styles.css';
 import { createStructuredSelector } from 'reselect';
-import Item from 'components/Item';
-import Card from 'components/Card';
+import UserCard from 'components/UserCard';
 import Loading from 'components/Loading';
+import MakeStream from 'components/MakeStream';
+
 /*
  * Actions
  */
-import { fetchingUsers } from './actions';
+import { fetchingUsers, updateForm } from './actions';
 
 export class User extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -26,36 +27,37 @@ export class User extends React.Component { // eslint-disable-line react/prefer-
   }
 
   componentDidMount() {
-    this.props.getUsers();
+    this.props.getUsers(this.props.user.activeUser.api_token);
   }
 
-  componentWillUpdate() {
-    // this.props.userList !== undefined;
+  handleSave() {
+    console.log('in user!!');
   }
 
-  componentWillUnmount() {
-    // console.log(this.props);
+  handleOnEdit(event) {
+    console.log(this);
+    console.log('Handeling edit!');
+    console.log(event.target.value);
+    this.props.updateForm(event.target.id, event.target.value);
   }
 
   render() {
-    // console.log(this.props);
     const users = this.props.userList.users;
-
+    console.log(this.props);
     if (users) {
-      const userList = users.map((user, index) => {
-        return <Card item={`Username: ${user.username} ${'\n'} ID: ${user.id}`} key={index}/>
-      });
 
       return (
-        <div className="container row center">
-          <h1>This is User container ! </h1>
-            {userList}
+        <div>
+          <h1 className="center">This is User container ! </h1>
+          <div className={styles.flexContainer}>
+              <MakeStream updateForm={this.handleOnEdit.bind(this)} save={this.handleSave.bind(this)} list={users} />
+          </div>
         </div>
-      )
+      );
     }
-    // this.state.list = this.props.getUsers();
+
     return (
-      <div className={styles.user}>
+      <div className="container row center">
         <h1>This is User container ! </h1>
         <Loading />
       </div>
@@ -70,13 +72,15 @@ function mapStateToProps(state) {
   return {
     state: state,
     userList: state.get('user'),
+    user: state.get('login')
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
-    getUsers: () => dispatch(fetchingUsers()),
+    getUsers: (apiKey) => dispatch(fetchingUsers(apiKey)),
+    updateForm: (name, value) => dispatch(updateForm(name, value)),
   };
 }
 

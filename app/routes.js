@@ -100,8 +100,226 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
+    },    {
+      path: '/leagues',
+      name: 'leagues',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Leagues/reducer'),
+          System.import('containers/Leagues/sagas'),
+          System.import('containers/Leagues'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('leagues', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },    {
+      path: '/brands',
+      name: 'brands',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Brands/reducer'),
+          System.import('containers/Brands/sagas'),
+          System.import('containers/Brands'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('brands', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },    {
+      path: '/events',
+      name: 'events',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Events/reducer'),
+          System.import('containers/Events/sagas'),
+          System.import('containers/Events'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('events', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },    {
+      path: '/handicappers',
+      name: 'handicappers',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Handicappers/reducer'),
+          System.import('containers/Handicappers/sagas'),
+          System.import('containers/Handicappers'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('handicappers', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },    {
+      path: '/members',
+      name: 'members',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Members/reducer'),
+          System.import('containers/Members/sagas'),
+          System.import('containers/Members'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('members', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },    {
+      path: '/operations',
+      name: 'operations',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Operations/reducer'),
+          System.import('containers/Operations/sagas'),
+          System.import('containers/Operations'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('operations', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },    {
+      path: '/periods',
+      name: 'periods',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Periods/reducer'),
+          System.import('containers/Periods/sagas'),
+          System.import('containers/Periods'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('periods', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },    {
+      path: '/picks',
+      name: 'picks',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Picks/reducer'),
+          System.import('containers/Picks/sagas'),
+          System.import('containers/Picks'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('picks', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },    {
+      path: '/products',
+      name: 'products',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Products/reducer'),
+          System.import('containers/Products/sagas'),
+          System.import('containers/Products'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('products', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },    {
+      path: '/login',
+      name: 'login',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Login/reducer'),
+          System.import('containers/Login/sagas'),
+          System.import('containers/Login'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('login', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/menu',
+      getComponent(location, cb) {
+        System.import('containers/MenuPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
     }, {
       path: '*',
+
+
+
+
+
+
+
+
+
+
+
       name: 'notfound',
       getComponent(nextState, cb) {
         System.import('containers/NotFoundPage')

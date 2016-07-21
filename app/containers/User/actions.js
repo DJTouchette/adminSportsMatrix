@@ -15,13 +15,15 @@ export function defaultAction() {
   };
 }
 
-export function fetchingUsers() {
+export function fetchingUsers(apiKey) {
   return {
     type: ACTIONS.REQUEST_USERS,
+    apiKey: apiKey,
   };
 }
 
 export function userResults(users) {
+  console.log(users);
   return {
     type: ACTIONS.RECEIVING_USERS,
     users: users
@@ -33,4 +35,12 @@ export function userResultsError(err) {
     type: ACTIONS.RECEVING_ERR,
     err: err
   };
+}
+
+export function updateForm(field, value) {
+    return {
+        type: ACTIONS.UPDATE_FORM,
+        field,
+        value
+    }
 }

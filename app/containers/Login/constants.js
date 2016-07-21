@@ -1,0 +1,15 @@
+/*
+ *
+ * Login constants
+ *
+ */
+
+export const DEFAULT_ACTION = 'app/Login/DEFAULT_ACTION';
+
+export const ACTIONS = {
+  REQUEST_LOGIN: 'REQUEST_LOGIN',
+  RECEIVE_LOGIN: 'RECEIVE_LOGIN',
+  RECEIVING_ERR: 'RECEIVING_ERR',
+  UPDATE_FORM: 'UPDATE_FORM',
+  ADD_API_KEY: 'ADD_API_KEY',
+}
